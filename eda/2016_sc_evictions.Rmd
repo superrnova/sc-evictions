@@ -1,0 +1,52 @@
+---
+title: EDA on Evictions 
+author: Jenny Nova
+date: "`r Sys.Date()`"
+output: 
+  github_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE}
+# Libraries
+library(tidyverse)
+
+# Parameters
+
+cities_path <- here::here("data/2016_sc_evictions.rds")
+
+#===============================================================================
+
+# Code
+```
+
+## Section 1
+
+  From here, we can see that Elgin, Powdersville, and Springdale appeared in the data more than once. To get an accurate city count, I want to group by city and sum to ensure that the maximum of the evictions are truly represented. We can see that North Charleston has the most 
+
+
+```{r}
+cities <- read_rds(cities_path)
+
+summary(cities)
+
+cities %>% 
+  count(name) %>% 
+  count(n) 
+
+cities %>% 
+  count(name) %>% 
+  filter(n > 1)
+
+cities %>%
+  group_by(name) %>% 
+  summarize(tot_evic = sum(evictions)) %>% 
+  arrange(desc(tot_evic))  %>% 
+  ungroup() %>% 
+  top_n(n = 1, wt = tot_evic)
+```
+
