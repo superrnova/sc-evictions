@@ -1,4 +1,4 @@
-# Description
+# Description To join the SC city boundaries and evictions data and read out the joined file
 
 # Author: Jenny Nova
 # Version: 2020-01-29

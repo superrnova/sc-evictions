@@ -1,4 +1,4 @@
-# Description
+# Description A script to read in and out the SC city boundaries data 
 
 # Author: Jenny Nova
 # Version: 2020-01-29
