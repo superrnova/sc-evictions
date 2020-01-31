@@ -1,4 +1,4 @@
-# Description A script to read and out the data from SC evictions in 2016
+# Description To join the SC city boundaries and evictions data and read out the joined file
 
 # Author: Jenny Nova
 # Version: 2020-01-29
