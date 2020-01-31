@@ -1,7 +1,7 @@
 EDA on Evictions
 ================
 Jenny Nova
-2020-01-29
+2020-01-30
 
   - [Section 1](#section-1)
 
@@ -69,20 +69,12 @@ cities %>%
 cities %>%
   group_by(name) %>% 
   summarize(tot_evic = sum(evictions)) %>% 
-  arrange(desc(tot_evic)) 
+  arrange(desc(tot_evic))  %>% 
+  ungroup() %>% 
+  top_n(n = 1, wt = tot_evic)
 ```
 
-    ## # A tibble: 394 x 2
-    ##    name             tot_evic
-    ##    <chr>               <dbl>
-    ##  1 North Charleston    3660.
-    ##  2 Columbia            2225.
-    ##  3 Charleston          1546.
-    ##  4 St. Andrews         1383.
-    ##  5 Florence            1097.
-    ##  6 Dentsville           769.
-    ##  7 Myrtle Beach         729.
-    ##  8 Anderson             642.
-    ##  9 Hanahan              529.
-    ## 10 Goose Creek          480.
-    ## # … with 384 more rows
+    ## # A tibble: 1 x 2
+    ##   name             tot_evic
+    ##   <chr>               <dbl>
+    ## 1 North Charleston    3660.
