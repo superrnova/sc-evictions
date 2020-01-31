@@ -1,4 +1,4 @@
-# Description
+# Description A script to read and out the data from SC evictions in 2016
 
 # Author: Jenny Nova
 # Version: 2020-01-29
